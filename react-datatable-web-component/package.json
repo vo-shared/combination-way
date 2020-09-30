@@ -1,0 +1,39 @@
+{
+  "name": "react-app-inside-webcomponent",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "react": "^16.13.1",
+    "react-data-grid": "^7.0.0-canary.22",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "react-tabulator": "^0.14.1"
+  },
+  "scripts": {
+    "start": "cp src/real-index.js src/index.js && react-scripts start",
+    "build": "cp src/real-index.js src/index.js && react-scripts build",
+    "generate-wc": "cp src/WebComponents.js src/index.js && GENERATE_SOURCEMAP=false react-scripts build src/WebComponents.js",
+    "package-wc": "rm -rf dist && mkdir dist && cat build/static/js/runtime-main.*.js > dist/react-left-menu.js && cat build/static/js/*.chunk.js >> dist/react-left-menu.js && cp build/static/css/main.*.css dist/react-left-menu.css",
+    "build-wc": "npm run generate-wc && npm run package-wc",
+    "test": "cp src/real-index.js src/index.js && react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      "last 2 Chrome versions",
+      "last 2 Firefox versions",
+      "last 2 Safari versions",
+      "last 2 Edge versions"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {}
+}

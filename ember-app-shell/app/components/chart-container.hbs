@@ -1,0 +1,8 @@
+  <div class="row h-100">
+    <div class=col-2>
+      <react-left-menu activeMenuItem="{{this.activeMenu}}" {{on "onItemChanged" (fn this.updateMenu)}}/>
+    </div>
+    <div class=col-10>
+      <vue-chart style="height: 340px; width: 700px;" type="{{this.activeMenu}}"></vue-chart>
+    </div>
+  </div>
