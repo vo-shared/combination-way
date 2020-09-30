@@ -1,5 +1,5 @@
 {
-  "name": "react-app-inside-webcomponent",
+  "name": "react-data-table-webcomponent",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,7 +14,7 @@
     "start": "cp src/real-index.js src/index.js && react-scripts start",
     "build": "cp src/real-index.js src/index.js && react-scripts build",
     "generate-wc": "cp src/WebComponents.js src/index.js && GENERATE_SOURCEMAP=false react-scripts build src/WebComponents.js",
-    "package-wc": "rm -rf dist && mkdir dist && cat build/static/js/runtime-main.*.js > dist/react-left-menu.js && cat build/static/js/*.chunk.js >> dist/react-left-menu.js && cp build/static/css/main.*.css dist/react-left-menu.css",
+    "package-wc": "rm -rf dist && mkdir dist && cat build/static/js/runtime-main.*.js > dist/react-data-table.js && cat build/static/js/*.chunk.js >> dist/react-data-table.js && cp build/static/css/main.*.css dist/react-data-table.css",
     "build-wc": "npm run generate-wc && npm run package-wc",
     "test": "cp src/real-index.js src/index.js && react-scripts test",
     "eject": "react-scripts eject"

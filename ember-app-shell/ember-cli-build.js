@@ -30,8 +30,11 @@ module.exports = function(defaults) {
   // app.import('node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js');
   app.import('vendor/webcomponents-loader.js');
   app.import('vendor/react-left-menu.js');
-  app.import('vendor/vue-chart.js');
   app.import('vendor/react-left-menu.css');
+  app.import('vendor/react-data-table.js');
+  app.import('vendor/react-data-table.css');
+  app.import('vendor/tabulator.min.css');
+  app.import('vendor/vue-chart.js');
 
   return app.toTree();
 };
