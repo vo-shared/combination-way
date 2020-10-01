@@ -30,6 +30,7 @@ module.exports = function(defaults) {
   // app.import('node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js');
   app.import('vendor/webcomponents-loader.js');
   app.import('vendor/tabulator.min.css');
+  app.import('vendor/tabulator_bootstrap4.min.css');
 
   return app.toTree();
 };

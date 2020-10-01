@@ -4,8 +4,7 @@ import "tabulator-tables/dist/css/tabulator.min.css"; //import Tabulator stylesh
 export class TableContainer extends React.Component {
     columns = [
         { title: "Label", field: "name", width: 150, editor:"input" },
-        { title: "Age", field: "age", hozAlign: "left", editor:"input" },
-        { title: "Favourite Color", field: "col", editor:"input" }
+        { title: "Age", field: "age", hozAlign: "left", editor:"input" }
     ]
     constructor(props) {
       super(props);
@@ -33,9 +32,9 @@ export class TableContainer extends React.Component {
     render() {
       return (
         <div className="container m-0 p-0 h-100">
-            <div className="row w-100">
+            <div className="row w-100 p-2">
                 <button className="btn btn-primary" onClick={this.addRow}>Add New Row</button>
-                <button className="btn btn-success" onClick={this.pushData}>Push Data</button>
+                <button className="btn btn-success ml-1" onClick={this.pushData}>Push Data</button>
             </div>
           <div className="row w-100">
             <ReactTabulator
