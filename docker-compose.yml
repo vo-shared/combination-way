@@ -1,0 +1,20 @@
+version: '3'
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./react-datatable-web-component/dist/:/home/react-datatable/
+      - ./react-inside-web-component/dist/:/home/react-menu/
+      - ./vue-inside-web-component/dist/:/home/vue-chart/
+      - ./ember-app-shell/dist/:/home/ember-shell/
+    ports:
+      - 8000:8000
+      - 2000:2000
+      - 3000:3000
+      - 4000:4000
+    networks:
+      - nginx_network
+networks:
+  nginx_network:
+    external: true
