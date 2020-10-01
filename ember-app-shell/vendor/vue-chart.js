@@ -30767,12 +30767,12 @@ function normalizeComponent (
   }
 }
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"54f0da4e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ChartView.vue?vue&type=template&id=fea328b4&shadow
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a402aed2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ChartView.vue?vue&type=template&id=2a055c27&shadow
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _vm._m(0)}
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"row",staticStyle:{"width":"700px","height":"400px"}},[_c('canvas',{attrs:{"width":"700","height":"400"}})])}]
 
 
-// CONCATENATED MODULE: ./src/components/ChartView.vue?vue&type=template&id=fea328b4&shadow
+// CONCATENATED MODULE: ./src/components/ChartView.vue?vue&type=template&id=2a055c27&shadow
 
 // CONCATENATED MODULE: ./node_modules/tslib/tslib.es6.js
 /*! *****************************************************************************
@@ -31499,7 +31499,15 @@ var ChartViewvue_type_script_lang_ts_shadow_ChartView = /** @class */ (function 
         return _super !== null && _super.apply(this, arguments) || this;
     }
     ChartView.prototype.mounted = function () {
+        var _this = this;
         this.initChart();
+        window.globalThis.eventBus.subscribe('onDataChanged', function (data) {
+            _this.myChart.data.labels = data.map(function (d) { return d.name; });
+            _this.myChart.chart.data.datasets.forEach(function (dataset) {
+                dataset.data = data.map(function (d) { return d.age; });
+            });
+            _this.myChart.update();
+        });
     };
     ChartView.prototype.initChart = function () {
         if (this.myChart) {
@@ -31518,16 +31526,44 @@ var ChartViewvue_type_script_lang_ts_shadow_ChartView = /** @class */ (function 
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
                             'rgba(255, 206, 86, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(255, 216, 86, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(255, 23, 86, 0.2)',
+                            'rgba(123, 206, 86, 0.2)',
+                            'rgba(41, 206, 86, 0.2)',
+                            'rgba(23, 206, 86, 0.2)',
+                            'rgba(255, 6, 86, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(45, 206, 86, 0.2)',
+                            'rgba(66, 206, 86, 0.2)',
+                            'rgba(255, 206, 9, 0.2)',
                             'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
+                            'rgba(3, 102, 255, 0.2)',
+                            'rgba(255, 4, 64, 0.2)',
                         ],
                         borderColor: [
                             'rgba(255, 99, 132, 1)',
                             'rgba(54, 162, 235, 1)',
                             'rgba(255, 206, 86, 1)',
                             'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
+                            'rgba(75, 2, 192, 1)',
+                            'rgba(75, 192, 1, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(75, 2, 192, 1)',
+                            'rgba(75, 2, 192, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(75, 4, 0, 1)',
+                            'rgba(75, 192, 7, 1)',
+                            'rgba(75, 192, 5, 1)',
+                            'rgba(2, 192, 192, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(75, 4, 192, 1)',
+                            'rgba(3, 192, 192, 1)',
+                            'rgba(75, 192, 5, 1)',
+                            'rgba(153, 102, 7, 1)',
                             'rgba(255, 159, 64, 1)'
                         ],
                         borderWidth: 1
@@ -31552,6 +31588,9 @@ var ChartViewvue_type_script_lang_ts_shadow_ChartView = /** @class */ (function 
     __decorate([
         Prop({})
     ], ChartView.prototype, "type", void 0);
+    __decorate([
+        Prop({})
+    ], ChartView.prototype, "busEvent", void 0);
     __decorate([
         Watch('type')
     ], ChartView.prototype, "onPropertyChanged", null);

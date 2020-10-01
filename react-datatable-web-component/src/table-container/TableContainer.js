@@ -23,21 +23,21 @@ export class TableContainer extends React.Component {
     }
 
     pushData = () => {
-
+      window.eventBus.publish('onDataChanged', this.state.data);
     }
     addRow = () => {
         const data = [...this.state.data];
-        data.push({id: data.length + 1, name:"Margret Marmajuke", age:"16", col:"yellow", dob:"31/01/1999"});
+        data.push({id: data.length + 1, name:"", age:"", col:"", dob:""});
         this.setState({data});
     }
     render() {
       return (
         <div className="container m-0 p-0 h-100">
             <div className="row w-100">
-                <button onClick={this.addRow}>Add New Row</button>
-                <button onClick={this.pushData}>Push Data</button>
+                <button className="btn btn-primary" onClick={this.addRow}>Add New Row</button>
+                <button className="btn btn-success" onClick={this.pushData}>Push Data</button>
             </div>
-          <div className="row w-100 h-100">
+          <div className="row w-100">
             <ReactTabulator
                 data={this.state.data}
                 columns={this.columns}
